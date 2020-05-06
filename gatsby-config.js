@@ -1,80 +1,67 @@
-require("dotenv").config()
-
-const queries = require("./src/utils/algolia_queries")
+require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
-    title: `Papode.Dev`,
-    position: `Engenheiro de Software`,
-    description: `Escrevo sobre o mundo da Tecnologia,Carreira e Desenvolvimento de software. Um papo de Dev para Dev!`,
-    author: `Matheus Benites`,
-    siteUrl: `https://papode.dev`,
+    title: 'Papode.Dev',
+    position: 'Engenheiro de Software',
+    description: 'Escrevo sobre o mundo da Tecnologia,Carreira e Desenvolvimento de software. Um papo de Dev para Dev!',
+    author: 'Matheus Benites',
+    siteUrl: 'https://papode.dev'
   },
   plugins: [
-    `gatsby-plugin-transition-link`,
-    `gatsby-plugin-styled-components`,
-    `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-transition-link',
+    'gatsby-plugin-styled-components',
+    'gatsby-plugin-react-helmet',
     // needs to be the first to work with gatsby-remark-images
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `uploads`,
-        path: `${__dirname}/static/assets/img`,
-      },
+        name: 'uploads',
+        path: `${__dirname}/static/assets/img`
+      }
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
+        name: 'images',
+        path: `${__dirname}/src/images`
+      }
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `posts`,
-        path: `${__dirname}/posts`,
-      },
+        name: 'posts',
+        path: `${__dirname}/posts`
+      }
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
           {
-            resolve: "gatsby-remark-relative-images",
+            resolve: 'gatsby-remark-relative-images',
             options: {
-              name: "uploads",
-            },
+              name: 'uploads'
+            }
           },
           {
-            resolve: "gatsby-remark-images",
+            resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 960,
-              linkImagesToOriginal: false,
-            },
+              linkImagesToOriginal: false
+            }
           },
-          `gatsby-remark-lazy-load`,
-          `gatsby-remark-prismjs`,
-        ],
-      },
+          'gatsby-remark-lazy-load',
+          'gatsby-remark-prismjs'
+        ]
+      }
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
-      resolve: `gatsby-plugin-algolia-search`,
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
-        appId: process.env.GATSBY_ALGOLIA_APP_ID,
-        apiKey: process.env.ALGOLIA_ADMIN_KEY,
-        indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
-        queries,
-        chunkSize: 10000, // default: 1000
-        enablePartialUpdates: true,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: `UA-165367744-1`,
+        trackingId: 'UA-165367744-1',
         head: true,
         anonymize: true,
         respectDNT: true,
@@ -82,41 +69,41 @@ module.exports = {
         defer: true,
         sampleRate: 5,
         siteSpeedSampleRate: 10,
-        cookieDomain: "papode.dev",
-      },
+        cookieDomain: 'papode.dev'
+      }
     },
     {
-      resolve: "gatsby-plugin-mailchimp",
+      resolve: 'gatsby-plugin-mailchimp',
       options: {
         endpoint:
-          "https://devjedi.us7.list-manage.com/subscribe/post?u=fd145b8cfd95d2e6bc510367d&amp;id=9f4735c213",
-      },
+          'https://devjedi.us7.list-manage.com/subscribe/post?u=fd145b8cfd95d2e6bc510367d&amp;id=9f4735c213'
+      }
     },
     {
-      resolve: `gatsby-plugin-nprogress`,
+      resolve: 'gatsby-plugin-nprogress',
       options: {
         // Setting a color is optional.
-        color: `rgba(238,63,255,1)`,
+        color: 'rgba(238,63,255,1)',
         // Disable the loading spinner.
-        showSpinner: true,
-      },
+        showSpinner: true
+      }
     },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `Papode.Dev`,
-        short_name: `Papode.Dev`,
-        start_url: `/`,
-        background_color: `#16202c`,
-        theme_color: `#16202c`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-      },
+        name: 'Papode.Dev',
+        short_name: 'Papode.Dev',
+        start_url: '/',
+        background_color: '#16202c',
+        theme_color: '#16202c',
+        display: 'minimal-ui',
+        icon: 'src/images/gatsby-icon.png' // This path is relative to the root of the site.
+      }
     },
-    "gatsby-plugin-sitemap",
+    'gatsby-plugin-sitemap',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-netlify-cms`,
-  ],
+    'gatsby-plugin-offline',
+    'gatsby-plugin-netlify-cms'
+  ]
 }
