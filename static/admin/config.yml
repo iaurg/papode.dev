@@ -2,8 +2,7 @@ backend:
   name: github
   repo: iaurg/papode.dev
   branch: master
-  site_domain: https://zealous-spence-5d8ea4.netlify.app
-  app_id: a6131d65284dd97bff3f
+  site_domain: zealous-spence-5d8ea4.netlify.app
 
 publish_mode: editorial_workflow
 media_folder: "static/assets/img"
